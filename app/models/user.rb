@@ -4,12 +4,15 @@ class User < ActiveRecord::Base
 	has_many :user_contacts
 	has_many :user_nicknames
 	has_many :user_pages
+	has_many :user_logs
 
+	has_one :user_profile
+
+	validates :username, :presence => {:message => "Uživatelské jméno musí být vyplněna"}
 	validates :nickname, :presence => {:message => "Přezdívka musí být vyplněna"}
 	validates :nickname, :uniqueness => {:message => "Přezdívka musí být unikátní v rámci systému" }
 	validates :password, :presence => { :message => "Heslo musí být vyplněno" }
 	validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "E-Mail je ve špatném formátu" }
-	validates :homepage, :format => { :with => URI::regexp(%w(http https)), :allow_blank => true, :message => "Domovská stránka musí být buď prázdná a nebo v korektním URL formátu" }
 
 	before_save :hash_pw
 

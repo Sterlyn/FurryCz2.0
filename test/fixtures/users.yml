@@ -1,0 +1,47 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nickname: MyString
+  password: MyString
+  alt_nicknames: MyText
+  species: MyString
+  homepage: MyString
+  first_name: MyString
+  last_name: MyString
+  location: MyString
+  gps_location: MyString
+  distance_from_prague: MyString
+  hobbies: MyText
+  notes: MyText
+  gender: false
+  wants_to_travel: MyString
+  born_at: 2011-03-24
+  email: MyString
+  phone: MyString
+  icq: MyString
+  gtalk: MyString
+  jabber: MyString
+  msn: MyString
+
+two:
+  nickname: MyString
+  password: MyString
+  alt_nicknames: MyText
+  species: MyString
+  homepage: MyString
+  first_name: MyString
+  last_name: MyString
+  location: MyString
+  gps_location: MyString
+  distance_from_prague: MyString
+  hobbies: MyText
+  notes: MyText
+  gender: false
+  wants_to_travel: MyString
+  born_at: 2011-03-24
+  email: MyString
+  phone: MyString
+  icq: MyString
+  gtalk: MyString
+  jabber: MyString
+  msn: MyString

@@ -1,0 +1,16 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+		<h2>Kontakty</h2>
+		<% unless @user.user_contacts.empty? %>
+			<% @user.user_contacts.each do |contact| %>
+				<span class="contact_type"><%= CONTACTS[contact.contact_type] %></span>&nbsp;<span class="contact_value"><%= contact.contact %></span><br />
+			<% end %>
+		<% else %>
+			<span><i>Nemáte vyplněny žádné kontakty<br /></i></span>
+		<% end %>
+		<%= select_tag :new_contact_type, options_for_select(CONTACTS.invert) %>
+		<%= text_field_tag :new_contact_value, '' %>
+		<button id="ajax_add_contact" onclick="ajax_add_contact()">Přidat</button>

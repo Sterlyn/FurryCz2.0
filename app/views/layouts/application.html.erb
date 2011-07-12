@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FurryCz20</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<%# FIXME: Flash je zde pouze pro debug, je nutno nějak elegantě zpracovávat zprávy%>
+	<div id="flash">
+		<%= flash[:error].to_s %>
+		<%= flash[:warning].to_s %>
+	</div>
+	<% if session[:user].eql? nil %>
+	<div id="login-form">
+		<%= form_tag :controller => 'user', :action => 'login' do %>
+			<%= label :user, :username, "Login" %>
+			<%= text_field :user, :username %>
+			<%= label :user, :password, "Heslo" %>
+			<%= password_field :user, :password, :value => ''%>
+			<%= submit_tag "Přihlásit se" %>
+		<% end %>
+	</div>
+	<% else %>
+	<div id="user-info">Přihlášený uživatel: <%=  User.find(session[:user]).nickname %> <%=link_to 'Odhlásit', {:controller => 'user', :action => 'logout'} %> </div>
+	<% end %>
+
+<%= yield %>
+
+</body>
+</html>

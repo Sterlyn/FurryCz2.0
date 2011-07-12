@@ -20,6 +20,6 @@ GENDER[false] = "Samice"
 ACTION = Hash.new
 ACTION[0] = "Login"
 ACTION[1] = "Logout"
-
-ACTION_LOGIN = 0
-ACTION_LOGOUT = 1
+ACTION[2] = "Špatné heslo"
+ACTION[3] = "Neschválený uživatel"
+ACTION[4] = "Zabanován"

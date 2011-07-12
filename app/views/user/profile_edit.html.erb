@@ -1,0 +1,108 @@
+<h1>User#profile_edit</h1>
+
+<% if not @user.errors.empty? %>
+<div class="errors">
+	<ul>
+		<% @user.errors.each_pair do |k,v| %>
+		<li><%= v %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div id="profile_edit_form" class="form">
+	<%= form_for :user, :url => {:controller => 'user', :action => 'register' } do %>
+		<p>
+			<%= label :user, :nickname, "Přezdívka" %>
+		</p>
+		<p>
+			<%= text_field :user, :nickname %>
+		</p>
+		<p>
+			<%= label :user, :password, "Nové heslo" %>
+		</p>
+		<p>
+			<%= password_field :user, :password, :value => ''  %>
+		</p>
+		<p>
+			<%= label :u, :password, "Staré heslo (pouze při změně hesla)" %>
+		</p>
+		<p>
+			<%= password_field :u, :password, :value => '' %>
+		</p>
+
+		<p>
+			<%= label :user, :email, "E-Mail" %>
+		</p>
+		<p>
+			<%= email_field :user, :email %>
+		</p>
+		<p>
+			<%= label :user_profile, :species, "Druh" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :species %>
+		</p>
+		<p>
+			<%= label :user_profile, :homepage, "Stránka" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :homepage, {:value => "http://"}  %>
+		</p>
+		<p>
+			<%= label :user_profile, :first_name, "Jméno" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :first_name %>
+		</p>
+		<p>
+			<%= label :user_profile, :last_name, "Příjmení" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :last_name %>
+		</p>
+		<p>
+			<%= label :user_profile, :location, "Bydliště" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :location %>
+		</p>
+		<p>
+			<%= label :user_profile, :distance_from_prague, "Vzdálenost od Prahy" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :distance_from_prague%>
+		</p>
+		<p>
+			<%= label :user_profile, :hobbies,  "Zájmy" %>
+		</p>
+		<p>
+			<%= text_area :user_profile, :hobbies%>
+		</p>
+		<p>
+			<%= label :user_profile, :gender, "Pohlaví" %>
+		</p>
+		<p>
+			<%= select :user_profile, :gender, options_for_select(GENDER.invert)  %>
+		</p>
+		<p>
+			<%= label :user_profile, :wants_to_travel, "Ochota cestovat" %>
+		</p>
+		<p>
+			<%= text_field :user_profile, :wants_to_travel %>
+		</p>
+		<p>
+			<%= label :user_profile, :born_at, "Datum narození" %>
+		</p>
+		<p>
+			<%= date_select :user_profile, :born_at %>
+		</p>
+
+		<%= submit_tag "Odeslat" %>
+	<% end %>
+	<div id="contacts_form"></div>
+	<div id="pages_form"></div>
+</div>
+<script type="text/javascript">
+	new Ajax.Updater('contacts_form', "/user/ajax_contacts");
+	new Ajax.Updater('pages_form', "/user/ajax_pages");
+</script>

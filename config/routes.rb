@@ -1,13 +1,17 @@
 FurryCz20::Application.routes.draw do
   get "user/register_form"
 
+	get "user/index"
+
 	post "user/register"
 
   get "user/overview"
 
   get "user/bookmarks"
 
-  get "user/login"
+  post "user/login"
+
+	get "user/logout"
 
   get "user/pw_change_form"
 
@@ -16,6 +20,13 @@ FurryCz20::Application.routes.draw do
   get "user/profile_edit"
 
   get "user/profile_save"
+
+	post "user/ajax_pages"
+
+	post "user/ajax_contacts"
+	get "user/ajax_contacts"
+
+	post "user/ajax_add_contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -66,7 +77,7 @@ FurryCz20::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "user#index"
 
   # See how all your routes lay out with "rake routes"
 
