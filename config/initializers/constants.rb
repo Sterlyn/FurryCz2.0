@@ -14,8 +14,9 @@ USER_STATUS[3]= "Smazaný na vlastní žádost"
 USER_STATUS[4]= "Zabanován"
 
 GENDER = Hash.new
-GENDER[true] = "Samec"
-GENDER[false] = "Samice"
+GENDER[0] = "Samec"
+GENDER[1] = "Samice"
+GENDER[2] = "Jiné"
 
 ACTION = Hash.new
 ACTION[0] = "Login"
