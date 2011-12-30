@@ -1,9 +1,9 @@
 class CreateUserProfiles < ActiveRecord::Migration
   def self.up
     create_table :user_profiles do |t|
-			t.integer :user_id, :null => false
-			t.string :species, :null => false, :default => ""
-			t.string :other_nicknames, :null => false, :default => ''
+		t.integer :user_id, :null => false
+		t.string :species, :null => false, :default => ""
+		t.string :other_nicknames, :null => false, :default => ''
       t.string :homepage, :null => false, :default => ""
       t.string :first_name, :null => false, :default => ""
       t.string :last_name, :null => false, :default => ""
@@ -13,7 +13,7 @@ class CreateUserProfiles < ActiveRecord::Migration
       t.text :hobbies, :null => false, :default => ""
       t.text :notes, :null => false, :default => ""
       # True => MALE, False => Female
-      t.boolean :gender, :null => false, :default => true
+      t.integer :gender, :null => false, :default => 0
       t.string :wants_to_travel, :null => false, :default => ""
       t.date :born_at, :default => nil
       t.timestamps
