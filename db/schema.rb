@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(:version => 20110326151500) do
     t.datetime "updated_at"
   end
 
-  create_table "user_nicknames", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.string   "nickname",   :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_pages", :force => true do |t|
     t.integer  "user_id",    :null => false
     t.string   "url",        :null => false
@@ -45,18 +38,19 @@ ActiveRecord::Schema.define(:version => 20110326151500) do
   end
 
   create_table "user_profiles", :force => true do |t|
-    t.integer  "user_id",                                :null => false
-    t.string   "species",              :default => "",   :null => false
-    t.string   "homepage",             :default => "",   :null => false
-    t.string   "first_name",           :default => "",   :null => false
-    t.string   "last_name",            :default => "",   :null => false
-    t.string   "location",             :default => "",   :null => false
-    t.string   "gps_location",         :default => "",   :null => false
-    t.string   "distance_from_prague", :default => "",   :null => false
-    t.text     "hobbies",              :default => "",   :null => false
-    t.text     "notes",                :default => "",   :null => false
-    t.boolean  "gender",               :default => true, :null => false
-    t.string   "wants_to_travel",      :default => "",   :null => false
+    t.integer  "user_id",                              :null => false
+    t.string   "species",              :default => "", :null => false
+    t.string   "other_nicknames",      :default => "", :null => false
+    t.string   "homepage",             :default => "", :null => false
+    t.string   "first_name",           :default => "", :null => false
+    t.string   "last_name",            :default => "", :null => false
+    t.string   "location",             :default => "", :null => false
+    t.string   "gps_location",         :default => "", :null => false
+    t.string   "distance_from_prague", :default => "", :null => false
+    t.text     "hobbies",              :default => "", :null => false
+    t.text     "notes",                :default => "", :null => false
+    t.integer  "gender",               :default => 0,  :null => false
+    t.string   "wants_to_travel",      :default => "", :null => false
     t.date     "born_at"
     t.datetime "created_at"
     t.datetime "updated_at"
